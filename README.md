@@ -35,3 +35,5 @@ TODO - How does it work?
 
 ## Summary of our model in a non-technical way
 
+## Brief summary of the work done on 31/10/2020
+DONE - We did programmatic assessment, to explore the data (train and test) for any mistmatches. We also visited spain competition on Trello to check data features SI units and if they are being captured correctly in the train and csv files. With regard to the above, we discovered that Seville pressure was recorded as categorical data while pressures of other cities were not. We also checked for null values in the data in each features and we managed to check the % errors.
