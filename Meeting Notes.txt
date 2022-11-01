@@ -1,0 +1,15 @@
+# 31/10/2022
+## Train data
+-- We have pushed the main work file to GitHub
+-- We are going to assess & analyse the train data set
+to look at each variable and do a philosophical analysis about their meaning and importance for this problem.
+-- check column names
+-- checking dtypes
+-- checking null values
+-- drop unnamed column
+-- time column should be datetime
+-- 
+-- barcelona and valencia pressure are not categorical
+## Next meeting
+Data cleaning
+write codes to deal with everything we have uncovered

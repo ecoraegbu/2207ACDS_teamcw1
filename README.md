@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+# 2207ACDS_teamcw1
+Repository for 2207ACDS_teamcw1 predict
+>>>>>>> 63ccfdc6a176622df6e362aa2b7076386aa1f406
 ## Contributors
 Team: 2207ACDS_teamcw1
 1. Emmanuel Oraegbu - ecoraegbu@gmail.com
