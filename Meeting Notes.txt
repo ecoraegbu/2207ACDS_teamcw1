@@ -1,5 +1,5 @@
 # 31/10/2022
-## Train data
+## Train data analysis
 -- We have pushed the main work file to GitHub
 -- We are going to assess & analyse the train data set
 to look at each variable and do a philosophical analysis about their meaning and importance for this problem.
@@ -13,3 +13,61 @@ to look at each variable and do a philosophical analysis about their meaning and
 ## Next meeting
 Data cleaning
 write codes to deal with everything we have uncovered
+
+Location: Google meet
+Date: 01/11/2022
+
+Attendees
+- Emmanuel Oraegbu (Group Leader)
+- Deborah Obafemi
+- Umar Kabir
+- Sello Simon Nong
+- Keketso Muchichwa
+
+Work to be completed
+- Further assessment of the given data
+- Data cleaning
+
+1) The meeting Started off with the group leader demonstrating how to open Jupyter notebook via command prompt.
+
+2) The group leader then followed with a demonstration on how to clear memory from a notebook using nbstrip via anaconda prompt.
+
+3) Before we started working on the predict notebook, the group leader explained to us what programmatic assessment was and how it helped us understand our data.
+
+4) We then noted all the mistakes/unfinished work that was not detected in the previous session
+	- Making copies of the dataset.
+	- Changing the variable names of the tables that were separated by city.
+
+5) The meeting was called off early due to connection issues that all team members were experiencing.
+
+Completed Work
+- Making copies of the dataset
+
+Location: Google meet
+Date: 02/11/2022
+
+Attendees
+- Emmanuel Oraegbu (Group Leader)
+- Deborah Obafemi
+- Umar Kabir
+- Sello Simon Nong
+- Keketso Muchichwa
+
+Work to be completed
+-- Data Cleaning
+-- EDA
+Assessed the duplicates 
+Examining duplicates in the all the columns and outliers in the train data
+All the rain_1h columns in the train data do not have percentiles
+wind speed for valencia is an outlier
+We noted that wind degree column for bilbao and valencia are not categorical
+	- we will convert them to categorical by creating categories
+Assessing the rain_1h in all cities for the train data
+Some records(3) in barcelona are outliers of 12.0000
+
+Examining duplicates in the all the columns and outliers in the test data
+All the rain_1h columns in the test data do not have percentiles
+bilbao rain_1h is highly skewed
+The pressure columns are not categorical
+fill null values with the mean on the pressure columns
+clean barcelona pressure from exponent to float
