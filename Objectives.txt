@@ -1,0 +1,7 @@
+Cleaning the Dataset
+univariate analysis graphical/non-graphical
+multivariate analysis graphical/non-graphical
+remove highly correlated 
+remove outliers
+convert columns to either categorical or numerical
+
