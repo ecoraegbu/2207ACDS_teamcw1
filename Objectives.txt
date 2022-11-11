@@ -1,7 +1,9 @@
-Cleaning the Dataset
-univariate analysis graphical/non-graphical
-multivariate analysis graphical/non-graphical
-remove highly correlated 
-remove outliers
-convert columns to either categorical or numerical
+Work to be done and those resposible for it.
 
+Cleaning/Transforming the Dataset [Emmanuel]
+Univariate analysis graphical/non-graphical [Emmanuel] 
+Multivariate analysis graphical/non-graphical [Umar]
+Remove highly correlated/Feature selection [Beaver] 
+Markdown [Sello]
+Start working on the presentation [Deborah]
+Model creation [Umar]
