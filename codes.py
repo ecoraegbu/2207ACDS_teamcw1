@@ -23,16 +23,6 @@ purple = sb.color_palette()[4]
 brown = sb.color_palette()[5]
 grey = sb.color_palette()[7]
 
-def change_levels(df, column_name, dictionary):
-    row = 0
-    for x in df[column_name]:
-        for key, value in dictionary.items():
-            if x == 0.0:
-                df.at[row, column_name] = key
-            if x > value[0] and x <= value[1]:
-                df.at[row, column_name] = key
-        row += 1
-    return
 
 # a func to plot a univariate countplot
 def plot_count(dataframe, x_axis= None, y_axis = None, plot_title = None, plot_order = None, plot_color = None, 
@@ -86,26 +76,26 @@ def plot_pie(dataframe, column, plot_startangle = 0, plot_counterclock = False, 
     plt.axis('square');
     
     # define a func to plot hist
-def sb_plot_hist(dataframe, x_axis = None, y_axis = None, plot_title = None, plot_title_font_size = 18,
+def sb_plot_hist(dataframe, x_axis = None, y_axis = None, plot_title = None,
               x_label = None, y_label = None, plot_fontsize = 12, plot_bin_number = 500, plot_color = None, 
               tick_fontsize = 12, plot_figsize = (15,10)):
     plt.figure(figsize=plot_figsize)
     plot = sb.histplot(data = dataframe, x = x_axis, bins = plot_bin_number, 
                        color = plot_color)
-    plt.title('' if plot_title == None else plot_title.upper(), fontsize = plot_title_fontsize)
+    plt.title('' if plot_title == None else plot_title.upper(), fontsize = plot_fontsize)
     plt.xticks(fontsize = tick_fontsize)
     plt.yticks(fontsize =  tick_fontsize)
     plt.xlabel('' if x_label == None else x_label.upper(), fontsize = plot_fontsize)
     plt.ylabel('' if y_label == None else y_label.upper(), fontsize = plot_fontsize);
     
     
-def plt_plot_hist(dataframe, x_axis = None, y_axis = None, bin_num = 1000, plot_title = None, plot_title_font_size = 18,
+def plt_plot_hist(dataframe, x_axis = None, y_axis = None, bin_num = 1000, plot_title = None,
                  x_label = None, y_label = None, plot_fontsize = 12, plot_color = None, tick_fontsize = 12, 
                   plot_figsize = (15,10), bin_edge = 0, axis = [], axis_set = False):
     bin = np.arange(bin_edge, dataframe[y_axis if x_axis == None else x_axis].max()+bin_num, bin_num)
     plt.figure(figsize = plot_figsize)
     plt.hist(data = dataframe, x = x_axis, bins = bin);
-    plt.title('' if plot_title == None else plot_title.upper(), fontsize = plot_title_font_size)
+    plt.title('' if plot_title == None else plot_title.upper(), fontsize = plot_fontsize)
     plt.xticks(fontsize = tick_fontsize)
     plt.yticks(fontsize =  tick_fontsize)
     plt.xlabel('' if x_label == None else x_label.upper(), fontsize = plot_fontsize)
@@ -327,15 +317,30 @@ def to_binary(dataframe, column_names = []):
 
 
 
-#funtion to detect outliers
+#funtion to detect and remove outliers
 def outliers(df, column):
     q1 = df[column].quantile(0.25)
     q3 = df[column].quantile(0.75)
     iqr = q3 - q1
     factor = iqr*1.5
-    low_b = q1-factor
-    upper_b = q3+factor
-    wl = df[column]>low_b
-    wh = df[column]<upper_b
+    lower_limit = q1-factor
+    upper_limit = q3+factor
+    df[column] = np.where(df[column] > upper_limit, upper_limit, np.where(df[column] < lower_limit, lower_limit, df[column]))
+    df = df.drop(df[df[column] > upper_limit].index, inplace = True)
+    #df = df.drop(df[df[column] < lower_limit].index, inplace = True)
+    return df
 
-    return 
+#a function to change the wind degrees to categories based on the levels defined
+def change_levels(df, column_name, dictionary):
+    row = 0
+    for x in df[column_name]:
+        if x >= dictionary[list(dictionary.keys())[0]][0] and x < dictionary[list(dictionary.keys())[0]][1]:
+            df.at[row, column_name] = key
+        else:
+            for key, value in dictionary.items():
+                if x == 0.0:
+                    df.at[row, column_name] = key
+                if x > value[0] and x <= value[1]:
+                    df.at[row, column_name] = key
+        row += 1
+    return
