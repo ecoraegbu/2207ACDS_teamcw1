@@ -9,6 +9,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sb
 import datetime as dt
+from sklearn.preprocessing import StandardScaler
 
 # suppress warnings from final output
 import warnings
