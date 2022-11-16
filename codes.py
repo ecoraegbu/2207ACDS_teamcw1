@@ -1,6 +1,11 @@
 ''' 	Author: Emmanuel Chukwuka Oraegbu
+		Umar Kabir
+		Simon Nong
+		Keketso Muchichwa
+		Sello Simon Nong
+		Deborah Obafemi
 	Email: ecoraegbu@gmail.com
-	Course: ALX-T Data analytics
+	Course: Advanced Regression EDSA
  '''
 
 # import all packages and set plots to be embedded inline
